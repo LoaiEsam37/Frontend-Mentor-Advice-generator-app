@@ -4,9 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 
 function App() {
-  const client = new QueryClient();
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
+
   return (
-    <div className="App">
+    <main>
       <QueryClientProvider client={client}>
         <Router>
           <Routes>
@@ -15,7 +22,7 @@ function App() {
           </Routes>
         </Router>
       </QueryClientProvider>
-    </div>
+    </main>
   );
 }
 

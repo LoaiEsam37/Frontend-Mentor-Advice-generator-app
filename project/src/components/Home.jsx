@@ -9,14 +9,46 @@ function Home() {
     );
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="card">
+        <div class="card__wrapper">
+          <h1>Advice #?</h1>
+          <p>Loading...</p>
+          <div className="pattern__divider"></div>
+          <div class="card--button" onClick={refetch}>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) {
+    return (
+      <div className="card">
+        <div class="card__wrapper">
+          <h1>Advice #?</h1>
+          <p>Something Went Wrong</p>
+          <div className="pattern__divider"></div>
+          <div class="card--button" onClick={refetch}>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      {data?.slip.advice}
-      <button onClick={refetch}>X</button>
+    <div className="card">
+      <div class="card__wrapper">
+        <h1>Advice #{data?.slip.id}</h1>
+        <p>"{data?.slip.advice}"</p>
+        <div className="pattern__divider"></div>
+        <div class="card--button" onClick={refetch}>
+          <span></span>
+        </div>
+      </div>
     </div>
   );
 }
