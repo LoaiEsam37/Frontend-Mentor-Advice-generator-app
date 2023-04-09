@@ -4,11 +4,12 @@ import Axios from "axios";
 
 function Home() {
   const { isLoading, error, data, refetch } = useQuery(["advice"], async () => {
+    console.log("started fetching")
     return await Axios.get("https://api.adviceslip.com/advice").then(
       (res) => res.data
     );
   });
-
+  console.log("fetching done")
   if (isLoading) {
     return (
       <div className="card">
