@@ -7,7 +7,7 @@ function Home() {
     console.log("started fetching")
     return await Axios.get("https://api.adviceslip.com/advice").then(
       (res) => res.data
-    ).catch("error");
+    ).catch(() => console.log("error"));
   });
   console.log("fetching done")
   if (isLoading) {
