@@ -11,7 +11,7 @@ function App() {
       },
     },
   });
-
+  console.log("The fetching isn`t working becaue react query updated to a new version with a different syntax. i will change my source code later to make it suitable for the new documentation")
   return (
     <main>
       <QueryClientProvider client={client}>
